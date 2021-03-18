@@ -5,6 +5,10 @@ class token():
         self.lexemeTk = lexemeTk
         self.xTk = xTk
         self.yTk = yTk
+
+    def setTk(self,value):
+        self.tk = value
+
         
 
 
