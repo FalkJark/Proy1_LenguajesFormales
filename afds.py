@@ -17,14 +17,18 @@ l2 = "\'XX\', \'xx\', \'xx\', 8%"
 l3 = "[ bebida_2;\'Bebida #2\';10.50; \'Descripción Bebida 2\']"
 l4 = "[bebida_1;\'Bebida #1\';11.;\'Descripción Bebida 1\' ]"
 l5 = 'restaurante=\'Restaurante LFP\''
+
+
 #-------------Automata finito determinista
 def afd(line,posY):
+    print("afd")
     line = line + " "
     length = len(line)
     posX = 1
     state = 0
     cache = ''
     while posX <= length:
+        print("while")
         char = line[posX-1]
         ac = ord(char)
         idToken = len(tableTk)
@@ -32,7 +36,7 @@ def afd(line,posY):
         #--------------------SWITCH------------------------
         if state == 0:  
             if ac>=48 and ac<=57: # char is a number
-                print("encontro un numero")
+                #print("encontro un numero")
                 cache += chr(ac)
                 state = 5
                 posX += 1
@@ -47,8 +51,13 @@ def afd(line,posY):
                 cache += chr(ac)
                 state = 1
                 posX += 1
+            elif (ac == 32)or(ac==10)or(ac==9)or(ac==13):
+                posX += 1
             else:
-                posX += 1 # if dont exist
+                cache += chr(ac)
+                e = error(idError,cache,posX,posY,"El caracter no se identifica")
+                tableE.append(e)
+                 # if dont exist
         
         elif state == 1:
             tk = token(idToken,"Simbolo",cache,posX,posY)
@@ -152,19 +161,23 @@ def afd(line,posY):
             
 
 
-afd(l5,0)
+#afd(l1,0)
 
+#name= getLexeme(2,"Cadena",0)
+#print("NAME: ",name)
 
-if len(tableTk) != 0:
-    print("-------------------------TOKENS--------------------------")
-    for i in tableTk:
-        print("id: ",i.idTk,", valor: ",i.tk,", lexema: ",i.lexemeTk,"posX: ",i.xTk)
-else:
-    print("token vacios")
+'''
+    if len(tableTk) != 0:
+        print("-------------------------TOKENS--------------------------")
+        for i in tableTk:
+            print("id: ",i.idTk,", valor: ",i.tk,", lexema: ",i.lexemeTk,"posX: ",i.xTk)
+    else:
+        print("token vacios")
 
-if len(tableE) != 0:
-    print("-------------------------ERRORES--------------------------")
-    for i in tableE:
-        print("id: ",i.idE,", valor: ",i.valueE,", posX: ",i.xE,", desc: ",i.desc)
-else:
-    print("errores vacios")
+    if len(tableE) != 0:
+        print("-------------------------ERRORES--------------------------")
+        for i in tableE:
+            print("id: ",i.idE,", valor: ",i.valueE,", posX: ",i.xE,", desc: ",i.desc)
+    else:
+        print("errores vacios")
+'''
