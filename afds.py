@@ -32,7 +32,7 @@ def afd(line,posY):
         #--------------------SWITCH------------------------
         if state == 0:  
             if ac>=48 and ac<=57: # char is a number
-                print("encontro un numero")
+                #print("encontro un numero")
                 cache += chr(ac)
                 state = 5
                 posX += 1
@@ -152,7 +152,7 @@ def afd(line,posY):
             
 
 
-afd(l5,0)
+#afd(l5,0)
 
 
 if len(tableTk) != 0:
