@@ -18,3 +18,17 @@ class element():
         self.priceEle = priceEle
         self.descEle = descEle
 
+class invoice():
+    def __init__(self,idInv,nameCli,nitCli,addressCli,tip):
+        self.idInv = idInv
+        self.nameCli = nameCli
+        self.nitCli = nitCli
+        self.addressCli = addressCli 
+        self.tip = tip
+
+class detail():
+    def __init__(self,idDet,idInv,cant,idElement):
+        self.idDet = idDet
+        self.idInv = idInv
+        self.cant = cant
+        self.idElement = idElement
