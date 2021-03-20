@@ -34,7 +34,10 @@ while out != True:
                 row+=1
         else:
             print("Hay errores")
-        print(syntax.information)
+        print("-------------------------------------------")
+        syntax.printRest() 
+        syntax.printSec()
+        syntax.printElement()
 
         #for k in afds.tableTk:
         #    print(k.idTk,k.tk,k.lexemeTk,k.xTk,k.yTk)

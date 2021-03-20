@@ -97,7 +97,7 @@ def afd(line,posY):
                 state = 8
                 posX += 1
             else:
-                tk = token(idToken,"Entero",cache,posX,posY)
+                tk = token(idToken,"Numero",cache,posX,posY)
                 tableTk.append(tk)
                 state = 0
                 cache = ''
@@ -109,7 +109,7 @@ def afd(line,posY):
                 posX += 1
             else:
                 cache += "00"
-                tk = token(idToken,"Flotante",cache,posX,posY)
+                tk = token(idToken,"Numero",cache,posX,posY)
                 tableTk.append(tk)
                 state = 0
                 cache = ''
@@ -120,7 +120,7 @@ def afd(line,posY):
                 state = 7
                 posX += 1
             else:
-                tk = token(idToken,"Flotante",cache,posX,posY)
+                tk = token(idToken,"Numero",cache,posX,posY)
                 tableTk.append(tk)
                 state = 0
                 cache = ''
