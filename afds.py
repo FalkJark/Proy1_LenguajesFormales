@@ -154,7 +154,20 @@ def afd(line,posY):
 
 #afd(l5,0)
 
+def getLexeme(iteration,type,posY):
+    lexeme = None
+    cont = 1
+    if (len(tableTk)!= 0) and (len(tableE)==0):
+        for k in tableTk:
+            if (k.tk == type) and (k.yTk==posY):
+                if iteration == cont:    
+                    lexeme = k.lexemeTk
+                    break
+                else:
+                    cont += 1
+    return lexeme
 
+'''
 if len(tableTk) != 0:
     print("-------------------------TOKENS--------------------------")
     for i in tableTk:
@@ -168,3 +181,4 @@ if len(tableE) != 0:
         print("id: ",i.idE,", valor: ",i.valueE,", posX: ",i.xE,", desc: ",i.desc)
 else:
     print("errores vacios")
+'''
