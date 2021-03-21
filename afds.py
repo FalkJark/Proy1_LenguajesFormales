@@ -19,7 +19,7 @@ l4 = "[bebida_1;\'Bebida #1\';11.;\'Descripción Bebida 1\' ]"
 l5 = 'restaurante=\'Restaurante LFP\''
 #-------------Automata finito determinista
 def afd(line,posY):
-    line = line + " "
+    line = line + "  "
     length = len(line)
     posX = 1
     state = 0
@@ -119,6 +119,8 @@ def afd(line,posY):
                 cache += chr(ac)
                 state = 7
                 posX += 1
+            elif ac == 8:
+                state = 11
             else:
                 tk = token(idToken,"Numero",cache,posX,posY)
                 tableTk.append(tk)
@@ -126,7 +128,7 @@ def afd(line,posY):
                 cache = ''
         
         elif state == 8:
-            tk = token(idToken,"Porcentaje",cache,posX,posY)
+            tk = token(idToken,"Numero",cache,posX,posY)
             tableTk.append(tk)
             state = 0
             cache = ''
@@ -144,7 +146,11 @@ def afd(line,posY):
                 tableTk.append(tk)
                 state = 0
                 cache = ''
-                
+        elif state == 11:
+            tk = token(idToken,"Numero",cache,posX,posY)
+            tableTk.append(tk)
+            state = 0
+            cache = ''
 
         else:
             print("Algo salio mal, no hay ningun estado")

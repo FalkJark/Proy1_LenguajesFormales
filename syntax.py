@@ -29,6 +29,7 @@ def getValuesMenu(line,posY):
             elements.append(element)
         else:
             print("Hubo un error de sintaxis")
+    print("Guardando información del menu...")
 
 def getValuesInvoice(line,posY):
     posX = 0
@@ -51,7 +52,7 @@ def getValuesInvoice(line,posY):
             details.append(det)
         else:
             print("Hubo un error de sintaxis")
-    
+    print("Guardando información de la compra...")
 
 def printInvoices():
     if len(invoices)>0:
